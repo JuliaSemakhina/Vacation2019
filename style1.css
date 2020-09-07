@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Play:wght@400;700&family=Poiret+One&display=swap');
+
+*, *::after, *::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+ --main-font:  'Marck Script', cursive;
+ --secondary-font: 'Play', sans-serif;
+ --body-font: 'Poiret One', cursive;
+ --main-font-color: #252525;
+ --secondary-font-color: #D2691E;
+ --body-font-color: #515151;
+ --accent: #5F9EA0; 
+ --secondary-color: #008080;
+ --primary-color: rgba(13,110,139,0.7);
+}
+
+.map {
+	width: 100%;
+	height: 100vh;
+	background: url(images/benidorm1.png) center no-repeat;
+	background-size: cover;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-template-columns: repeat(20, 1fr);
+	grid-template-rows: repeat(10,1fr);
+	font-family: var(--body-font);
+	font-size: 2rem;
+}
+
+.box > figcaption {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70px;
+	height: 85px;
+	background-color: var(--secondary-color);
+	opacity: 0.75;
+	border-radius: 25px;
+	margin-top: 3px;
+	margin-left: 3px;
+	margin-bottom: 10px;
+	transition: opacity 0.2s ease-out;
+
+}
+
+.box > figcaption:hover {
+	opacity: 1;
+}
+
+/*.box:nth-of-type(1) figcaption {
+	background: url(images/13.jpg);
+	background-size: cover;
+}
+
+.box:nth-of-type(2) figcaption {
+	background: url(images/134.jpg);
+	background-size: cover;
+	margin-left: 15px;
+}*/
+
+.map > div a {
+	font-size: .8rem;
+	text-decoration: none;
+	color: #fff;
+	display: none;
+	font-family: var(--secondary-font);
+}
+
+.map > div:hover a{
+		display: block;
+		opacity: 1;
+}
+
+.box-one {
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+	
+/*	border-radius: 25px;
+	width: 70px;
+	height: 85px;*/
+}
+
+.box-two {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
+
+.box-three {
+	grid-column: 20 / 21;
+	grid-row: 1 / 2;
+}
+
+.box-four {
+	grid-column: 11 / 12;
+	grid-row: 6 / 7;
+}
+
+.box-five {
+	grid-column: 14 / 15;
+	grid-row: 6 / 7;
+}
+
+.box-six {
+	grid-column: 17 / 18;
+	grid-row: 7 / 8;
+}
+
+.box-seven {
+	grid-column: 11 / 12;
+	grid-row: 8 / 9;
+}
+
+.box-eight {
+	grid-column: 15 / 16;
+	grid-row: 7 / 8;
+}
+
+.box-nine {
+	grid-column: 11 / 12;
+	grid-row: 9 / 10;
+}
+
+.box-ten {
+	grid-column: 15 / 16;
+	grid-row: 9 / 10;
+}
+
+.box-eleven {
+	grid-column: 12 / 13;
+	grid-row: 9 / 10;
+}
+
+.box-twelve {
+	grid-column: 13 / 14;
+	grid-row: 9 / 10;
+}
+
+.box-thirteen {
+	grid-column: 14 / 15;
+	grid-row: 10/ 11;
+}
+
+.box-fourteen {
+	grid-column: 11 / 12;
+	grid-row: 10 / 11;
+}
+
+.box-fifteen {
+	grid-column: 9 / 10;
+	grid-row: 10 / 11;
+}
+
+.back {
+	display: inline-block;
+	border: none;
+	width: 8rem;
+	height: 3rem;
+	background-color: #fff;
+	padding: 0.75em 1rem;
+	text-decoration: none;
+	transition: background-color .5s ease-in;
+	border-radius: 15px;
+	outline: none;
+	z-index: 16;
+	position: absolute;
+	top: 22rem;
+	left: 1rem;
+	font-family: var(--secondary-font);
+	font-weight: bold;
+}
+
+button a {
+	text-decoration: none;
+	color: var(--secondary-color);
+	
+}
+
+.back:hover {
+	background-color: var(--accent);
+}
+
+.back a:hover {
+	color: #fff;
+}
+
+/*Modal*/
+
+.map-modal {
+ 	display: none; 
+    position: fixed;
+   	z-index: 100;
+	top: 1em;
+	bottom: 1em;
+	padding: 40px;
+	left: 2em;
+	right: 2em;
+	background: white;
+	color: #000;
+	overflow-y: scroll;
+	overflow-x: hidden; 
+}
+
+
+.map-modal.is-open {
+    display: block; 
+}
+
+body.is-open {
+    overflow: hidden;
+    position: fixed;
+}
+
+.modal-close {
+  background: var(--accent);
+  color: #fff;
+  position: fixed;
+  font-weight: bold;
+  outline: none;
+  left: 3rem;
+  top: 1rem;
+  border: 0;
+  width: 3em;
+  height: 3em;
+  z-index: 2;
+/*  padding: 4px 0 0;*/
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: background-color, color 0.4s ease-out;
+}
+
+
+.modal-close:hover {
+	background: #fff;
+  	color: var(--accent);
+}
+
+.item-body {
+	margin-left: 1.5rem;
+	margin-top: 1rem;
+	margin-right: 1rem;
+}
+
+.item-body p {
+	text-align: justify;
+}
+.slider {
+	position: relative;
+	overflow: hidden;
+	height: 105vh;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 2.5rem;
+}
+
+/*.slider-container {
+	
+}*/
+
+
+.slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 80%;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 0.4s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.slide.current {
+	opacity: 1;
+}
+
+.buttons button#next {
+	position: absolute;
+	top: 65%;
+	right: 60px;
+}
+
+.buttons button#prev {
+	position: absolute;
+	top: 65%;
+	left: 60px;
+}
+
+.buttons button {
+	border: 2px solid var(--secondary-font-color);
+	background-color: transparent;
+	color: var(--accent);
+	cursor: pointer;
+	padding: 13px 15px;
+	border-radius: 50%;
+	outline: none;
+	transition: background-color, color 0.4s ease-in;
+}
+
+.buttons button:hover {
+	background-color: var(--secondary-font-color);
+	color: #fff;
+}
+
+.sun {
+	font-size: 2rem;
+	color: var(--secondary-font-color);
+	margin-top: 1rem;
+	margin-bottom: 4rem;
+	opacity: 0;
+	animation: spin .5s forwards;
+	animation-delay: .7s;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(-360deg);
+	}
+
+}
+
+  @keyframes modalIn {
+	0% {opacity: 0; }
+	100% { opacity: 1; }
+	}
+
+	@keyframes modalOut {
+	0% {opacity: 1; }
+	100% { opacity: 0; }
+	}
+
+
+
+	@media (min-width: 1000px) and (max-width: 1300px) {
+		.box > figcaption {
+			width: 50px;
+			height: 60px;
+		}
+
+		.map > div a {
+			font-size: 0.7rem;
+		}
+
+		.buttons button#prev,
+		.buttons button#next {
+			position: absolute;
+			top: 65%;
+		}
+
+	}
+
+	@media (min-width: 821px) and (max-width: 1001px) {
+		.box > figcaption {
+			width: 35px;
+			height: 35px;
+		}
+
+		.map > div a {
+			font-size: 0.6rem;
+			
+		}
+
+		.map-modal {
+			padding: 0.2rem;
+			font-size: 1rem;
+			height: 90vh;
+		}
+
+		.modal-close {
+			left: 0.5rem;
+			top: 0.5rem;
+		}
+
+		.slider {
+			height: 75vh;
+			/*margin-left: 0;
+			margin-right: 0;*/
+		}
+
+		/*.buttons button#prev,
+		.buttons button#next {
+			position: absolute;
+			top: 50%;
+		}
+
+		.buttons button#prev {
+			left: 28px;
+		}
+
+		.buttons button#next {
+			right: 28px;
+		}*/
+
+		.buttons button#prev,
+		.buttons button#next {
+			position: relative;
+			right: 0;
+			left: 0;
+			/*margin-top: 0.5rem;*/
+		}
+
+		.sun {
+			margin-bottom: .5rem;
+		}
+	}
+
+	@media (max-width: 820px) {
+		/*.map {
+			grid-template-columns: repeat(10, 1fr);
+		}*/
+
+		.box > figcaption {
+			width: 30px;
+			height: 30px;
+			
+		}
+
+		.map > div a {
+			font-size: 0.6rem;
+			
+		}
+
+		.map-modal {
+			padding: 0.2rem;
+			height: 90vh;
+		}
+
+		.modal-close {
+			left: 3rem;
+			top: 1rem;
+		}
+
+		.slider {
+			height: 68vh;
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.buttons button#prev,
+		.buttons button#next {
+			position: relative;
+			right: 0;
+			left: 0;
+			/*margin-top: 0.5rem;*/
+		}
+
+		.sun {
+			margin-bottom: .5rem;
+		}
+
+		.item-body {
+			font-size: 1rem;
+
+		}
+
+		.back {
+			top: 15rem;
+		}
+	
+	}
+
+	@media (max-width: 550px) {
+		.map-modal {
+			height: 80vh;
+		}
+
+		.slider {
+			height: 45vh;
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+	}
