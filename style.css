@@ -358,7 +358,7 @@ header {
 	display: none;
 }
 
-.buttons {
+.select-buttons {
 	display: flex;
 	flex-direction: column;
 }
@@ -655,7 +655,7 @@ footer {
 	.position-right p {
 		margin-right: 2rem;
 	}
-	.buttons {
+	.select-buttons {
 		display: flex;
 		flex-direction: row;
 	}
